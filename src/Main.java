@@ -1,8 +1,29 @@
 public class Main {
 
     public static void main(String[] args) {
+
     }
 
+}
+
+class NumberPalindrome {
+
+    // return true if the number is palindrome number
+    public static boolean isPalindrome(int number) {
+
+        // find the reverse of the number and store in a variable
+        int reverse = 0;
+        int temp = number;
+
+        while (temp > 0) {
+            reverse = reverse * 10 + temp % 10;
+            temp /= 10;
+        }
+
+        if (Math.abs(number) == reverse){
+            return true;
+        } else return false;
+    }
 }
 
 class SumOddRange {
