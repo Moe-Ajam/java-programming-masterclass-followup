@@ -1,36 +1,76 @@
 public class Main {
 
     public static void main(String[] args) {
-        natoAlphabet('B');
     }
 
-    public static void natoAlphabet(char input){
-        switch (input){
-            case 'A':
-                System.out.println("Able");
-                break;
-            case 'B':
-                System.out.println("Baker");
-                break;
-            case 'C':
-                System.out.println("Charlie");
-                break;
-            case 'D':
-                System.out.println("Dog");
-                break;
-            case 'E':
-                System.out.println("Easy");
-                break;
-            default:
-                System.out.println("Not Included");
+}
+
+class SumOddRange {
+    public static boolean isOdd(int num) {
+        if (num < 0) return false;
+
+        if (num % 2 != 0) return true;
+        else return false;
+    }
+
+    public static int sumOdd(int start, int end) {
+        if (start > end || start < 0 || end < 0) {
+            return -1;
+        } else {
+            int sum = 0;
+            for (int i = start;i<=end;i++){
+                if(isOdd(i)){
+                    sum += i;
+                }
+            }
+            return sum;
         }
     }
 
 }
 
+class NumberOfDaysInMonth {
+    public static boolean isLeapYear(int year) {
+        if (year <= 0 || year >= 9999) {
+            return false;
+        }
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static int getDaysInMonth(int month, int year) {
+        if (month < 1 || month > 12) return -1;
+        if (year < 1 || year > 9999) return -1;
+        if (isLeapYear(year) && month == 2) {
+            return 29;
+        } else if (!isLeapYear(year) && month == 2) {
+            return 28;
+        }
+        switch (month) {
+            case 1, 3, 5, 7, 8, 10, 12:
+                return 31;
+            case 4, 6, 9, 11:
+                return 30;
+            default:
+                return -1;
+        }
+    }
+}
+
 class NumberInWord {
-    public static void printNumberInWord(int num){
-        switch (num){
+    public static void printNumberInWord(int num) {
+        switch (num) {
             case 0:
                 System.out.println("ZERO");
                 break;
@@ -67,9 +107,10 @@ class NumberInWord {
         }
     }
 }
+
 class PlayingCat {
-    public static boolean isCatPlaying(boolean summer, int temp){
-        if (summer && (temp >= 25 && temp <= 45)){
+    public static boolean isCatPlaying(boolean summer, int temp) {
+        if (summer && (temp >= 25 && temp <= 45)) {
             return true;
         } else if (!summer && (temp >= 25 && temp <= 35)) {
             return true;
@@ -78,12 +119,12 @@ class PlayingCat {
 }
 
 class IntEqualityPrinter {
-    public static void printEqual(int x, int y, int z){
-        if (x < 0 || y < 0 || z < 0){
+    public static void printEqual(int x, int y, int z) {
+        if (x < 0 || y < 0 || z < 0) {
             System.out.println("Invalid Value");
-        } else if (x == y && x == z){
+        } else if (x == y && x == z) {
             System.out.println("All numbers are equal");
-        } else if (x != y && x != z && y != z){
+        } else if (x != y && x != z && y != z) {
             System.out.println("All numbers are different");
         } else {
             System.out.println("Neither all are equal or different");
