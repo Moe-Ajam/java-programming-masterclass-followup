@@ -6,6 +6,36 @@ public class Main {
 
 }
 
+class NumberToWords {
+    public static void numberToWords(int number){
+        if (number < 0) System.out.println("Invalid Value");
+        else {
+            while(number > 0){
+
+            }
+        }
+    }
+}
+
+class PerfectNumber {
+    public static boolean isPerfectNumber(int number){
+        if (number < 1) return false;
+
+        // to skip itself
+        int temp  = number -1;
+        int sum = 0;
+
+        while (temp > 0){
+            if(number % temp == 0) sum += temp;
+            temp --;
+        }
+
+        if (sum == number) return true;
+        else return false;
+
+    }
+}
+
 class NumberPalindrome {
 
     // return true if the number is palindrome number
