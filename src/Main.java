@@ -1,15 +1,37 @@
+import java.rmi.dgc.DGC;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        int currentYear = 2023;
+        Dog dog = new Dog("Wolf", "big", 100);
+        dog.makeNoise();
+        doAnimalStuff(dog);
 
-        try{
-            System.out.println(getInputFromConsole(currentYear));
-        } catch (NullPointerException e){
-            System.out.println(getInputFromScanner(currentYear));
+        ArrayList<Animal> animals = new ArrayList<>();
+        animals.add(dog);
+        animals.add(new Dog("German Shepard", "big", 150));
+        animals.add(new Fish("Goldfish", "small", 1));
+        animals.add(new Fish("Barracuda", "big", 75));
+        animals.add(new Dog("Pug", "small", 20));
+
+        animals.add(new Horse("Clydesdale", "large", 1000));
+
+        for (Animal animal: animals)
+        {
+            doAnimalStuff(animal);
+            if (animal instanceof Mammal currenMammal){
+                currenMammal.shedHair();
+            }
         }
+    }
+
+    private static void doAnimalStuff(Animal animal)
+    {
+        animal.makeNoise();
+        animal.move("slow");
     }
 
     public static String getInputFromConsole(int currentYear){
